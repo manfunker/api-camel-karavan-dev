@@ -1,0 +1,22 @@
+- restConfiguration:
+    component: platform-http
+- rest:
+    id: rest-0ea3
+    path: /api
+    produces: application/json
+    post:
+      - id: post-4bfc
+        path: /saludo
+        to: direct:inicio
+- route:
+    id: route-cf71
+    nodePrefixId: route-588
+    from:
+      id: from-0adb
+      uri: direct
+      parameters:
+        name: inicio
+      steps:
+        - log:
+            id: log-4c6b
+            message: ${body}
